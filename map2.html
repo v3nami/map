@@ -16,7 +16,7 @@
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    var map = L.map('map').setView([50.3834327082762, 30.60153417918023], 10);
+    var map = L.map('map').setView([50.3834327082762, 30.60153417918023], 10); 
 
     var streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -34,6 +34,45 @@
     };
 
     L.control.layers(baseMaps).addTo(map);
+
+    var geojsonFeaturePoint = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "Point",
+            "coordinates": [30.60153417918023, 50.3834327082762]
+          },
+          "properties": {
+          
+          }
+        }
+      ]
+    };
+
+    L.geoJSON(geojsonFeaturePoint).addTo(map);
+
+    var geojsonFeaturePolygon = {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [30.582984863712255, 50.53009272474003],
+            [30.582984863712255, 50.43735192591993],
+            [30.767086688309092, 50.43735192591993],
+            [30.767086688309092, 50.53009272474003],
+            [30.582984863712255, 50.53009272474003]
+          ]
+        ]
+      },
+      "properties": {
+        
+      }
+    };
+
+    L.geoJSON(geojsonFeaturePolygon).addTo(map);
   </script>
 </body>
 </html>
